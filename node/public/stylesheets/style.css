@@ -1,8 +1,23 @@
 body {
+  display: grid;
+  grid-template-areas:
+  'header header aside'
+  'nav nav aside'
+  'main main aside'
+  'footer footer footer';
+  grid-template-columns: auto auto 200px;
+
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+body> header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+background-color: blue;
 }
