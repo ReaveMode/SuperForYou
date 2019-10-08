@@ -1,7 +1,7 @@
 body {
   display: grid;
   grid-template-areas:
-  'header header aside'
+  'header header header'
   'nav nav aside'
   'main main aside'
   'footer footer footer';
@@ -21,7 +21,7 @@ header {
   justify-content: center;
 background-color: blue;
 color: whitesmoke;
-text-align: center;
+text-align: left;
 grid-area: header;
-height: 150px;
+height: 100px;
 }
