@@ -15,9 +15,13 @@ a {
   color: #00B7FF;
 }
 
-body> header {
+header {
   display: flex;
   align-items: center;
   justify-content: center;
 background-color: blue;
+color: whitesmoke;
+text-align: center;
+grid-area: header;
+height: 150px;
 }
