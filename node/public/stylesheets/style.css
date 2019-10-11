@@ -13,25 +13,64 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #89cFF0;
+  background-color: orange; 
   color: darkgreen;
   text-align: left;
   grid-area: header;
   height: 175px;
   text-align-last: left;
-  font: 70px "Lucida Grande", Helvetica, Arial, sans-serif;
-  
+  font: 70px "Lucida Grande", Helvetica, Arial, sans-serif; 
 }
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  background-color: gray;
-  color: black;
-  text-align: left;
-  grid-area: nav;
-  height: 30px;
-  padding: 5px;
+  width: 211%;
+  height: 60px;
+  background-color: blue;
+}
+
+nav p{
+  font-family: arial;
+  color: #222;
+  font-size: 24px;
+  line-height: 55px;
+  float: left;
+  padding: 0px 20px;
+}
+
+nav ul{
+  float: left;
+}
+nav ul li{
+  float: left;
+  list-style: none;
+  position: relative;
+}
+nav ul li a{
+  display: block;
+  font-family: arial;
+  color: orange;
+  font-size: 1 4px;
+  padding: 22px 14px;
+  text-decoration: none;
+}
+nav ul li ul{
+  display: none;
+  position: absolute;
+  background-color: yellow  ;
+  padding: 10px;
+  border-radius: 10px;
+}
+nav ul li:hover ul{
+  display: block;
+}
+nav ul li ul li{
+  width: 180px;
+  border-radius: 4px; 
+}
+nav ul li ul li a{
+  padding: 8px 14px;
+}
+nav ul li ul li a:hover{
+  background-color: #f3f3f3;
 }
 main {
   display: flex;
@@ -63,4 +102,14 @@ footer{
   text-align: left;
   grid-area: footer;
   height: 55px;
+}
+.img{
+  background-repeat: no-repeat;
+  display: block;
+  margin-top: 30%;
+  padding-top: 0%;
+  padding-left: 0%;
+  width: 30%;
+  float: left;
+
 }
