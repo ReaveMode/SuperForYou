@@ -14,13 +14,13 @@ body {
 header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: orange; 
+  justify-content: center; 
   color: darkgreen;
   text-align: left;
   grid-area: header;
   text-align-last: left;
   font: 70px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  ;
 } 
 nav {
   height: 60px;
@@ -110,13 +110,12 @@ footer{
   margin: 0;
   padding: 0;
 }
-.img{
-  background-repeat: no-repeat;
-  display: block;
-  margin-top: 30%;
-  padding-top: 0%;
-  padding-left: 0%;
-  width: 30%;
-  float: left;
-
+header img{
+  background-image: url("/images/supermarket.jpg");
+  background-color: #cccccc; 
+  height: 300px; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  width: fit-content;
 }
