@@ -160,7 +160,7 @@ header img{
   padding: 0px;
   border-radius: 10px;
 }
-#A:checked ~ ul li, #B:checked ~ ul li, #F:checked ~ ul li{
+#A:checked ~ ul li, #B:checked ~ ul li, #F:checked ~ ul li, #C:checked ~ ul li{
   display: block;
 }
 .sub-ctg{
