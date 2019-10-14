@@ -28,11 +28,11 @@ nav {
   
 }
 
-nav p{
+nav ul{
   font-family: arial;
   color: #222;
-  font-size: 24px;
-  line-height: 55px;
+  font-size: 16px;
+  line-height: center;
   float: left;
   padding: 0px 20px;
   
@@ -41,38 +41,52 @@ nav p{
 nav ul{
   float: left;
 }
-nav ul li{
+.title{
   float: left;
   list-style: none;
   position: relative;
 }
-nav ul li a{
+.title a{
   display: block;
   font-family: arial;
   color: orange;
-  font-size: 1 4px;
+  font-size:  20px;
   padding: 7px 14px;
   text-decoration: none;
 }
-nav ul li ul{
+.title ul{
   display: none;
   position: absolute;
   background-color: yellow  ;
   padding: 10px;
   border-radius: 10px;
 }
-nav ul li:hover ul{
+.title:hover ul{
   display: block;
 }
-nav ul li ul li{
+.title:hover{
+  background-color: red;
+}
+.ctg{
   width: 180px;
   border-radius: 4px; 
 }
-nav ul li ul li a{
-  padding: 8px 14px;
+.ctg{
+  padding:10px 14px;
 }
-nav ul li ul li a:hover{
-  background-color: #f3f3f3;
+.ctg a{
+  padding: 10px 14px;
+}
+.ctg label:hover{
+  background-color: red;
+}
+.ctg label{
+  display: block;
+  font-family: arial;
+  color: orange;
+  font-size:  17px;
+  padding: 8px 14px;
+  text-decoration: none;
 }
 main {
   display: flex;
@@ -119,3 +133,42 @@ header img{
   background-size: cover;
   width: fit-content;
 }
+
+.ctg ul li, .ctg input[type="checkbox"]{
+  display: none;
+}
+
+
+
+.sub-ctg{
+  float: left;
+  list-style: none;
+  position: relative;
+}
+.sub-ctg a{
+  display: block;
+  font-family: arial;
+  color: orange;
+  font-size: 16px;
+  padding: 7px 14px;
+  text-decoration: none;
+}
+.ctg ul{
+  display: none;
+  position: absolute;
+  background-color: yellow  ;
+  padding: 10px;
+  border-radius: 10px;
+}
+#A:checked ~ ul li, #B:checked ~ ul li, #F:checked ~ ul li{
+  display: block;
+}
+.sub-ctg{
+  width: 180px;
+  border-radius: 4px; 
+}
+.sub-ctg a{
+  padding: 8px 14px;
+}
+.sub-ctg a:hover{
+  background-color: red;
