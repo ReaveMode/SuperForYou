@@ -157,7 +157,7 @@ header img{
   display: none;
   position: absolute;
   background-color: yellow  ;
-  padding: 10px;
+  padding: 0px;
   border-radius: 10px;
 }
 #A:checked ~ ul li, #B:checked ~ ul li, #F:checked ~ ul li{
@@ -172,3 +172,4 @@ header img{
 }
 .sub-ctg a:hover{
   background-color: red;
+}
