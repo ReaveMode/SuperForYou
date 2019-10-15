@@ -20,7 +20,7 @@ header {
   grid-area: header;
   text-align-last: left;
   font: 70px "Lucida Grande", Helvetica, Arial, sans-serif; 
-  ;
+  background: url('../images/supermarket.jpg');
 } 
 nav {
   height: 60px;
@@ -98,6 +98,7 @@ main {
   grid-area: main;
   margin: 0;
   padding: 0;
+  background: url('../images/sad.png') 200px -3800px;
 }
 aside{
   display: flex;
