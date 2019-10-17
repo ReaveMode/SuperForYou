@@ -72,7 +72,7 @@ nav ul{
   border-radius: 4px; 
 }
 .ctg{
-  padding:10px 14px;
+  padding:2px 3px;
 }
 .ctg a{
   padding: 10px 14px;
@@ -98,7 +98,7 @@ main {
   grid-area: main;
   margin: 0;
   padding: 0;
-  background: url('../images/sad.png') 200px -3800px;
+  background: url('../images/.png') 200px -3800px;
 }
 aside{
   display: flex;
@@ -109,8 +109,20 @@ aside{
   text-align: left;
   grid-area: aside;
   height: 500px;
-  margin: 0;
-  padding: 0;
+  margin:   0px;
+  padding: 0px;
+
+}
+
+aside ul input{ 
+width: fit-content;
+padding: 10px;
+margin: 10px;
+border-width: 0px;
+}
+
+aside ul button{
+  margin: 15px;
 }
 
 footer{
