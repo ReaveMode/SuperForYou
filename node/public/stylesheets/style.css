@@ -98,7 +98,7 @@ main {
   grid-area: main;
   margin: 0;
   padding: 0;
-  background: url('../images/sad.png') 200px -3800px;
+  background: url('../images/beauty.png') 200px -3800px;
 }
 aside{
   display: flex;
