@@ -24,7 +24,7 @@ header {
 } 
 nav {
   height: 60px;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.692)
   
 }
 
@@ -174,12 +174,23 @@ header img{
   padding: 0px;
   border-radius: 10px;
 }
-#A:checked ~ ul li, #B:checked ~ ul li, #F:checked ~ ul li, #C:checked ~ ul li{
+#a1:checked ~ ul li,#a2:checked ~ ul li,#a3:checked ~ ul li,#a4:checked ~ ul li,#a5:checked ~ ul li,
+#a6:checked ~ ul li,#a7:checked ~ ul li,#a8:checked ~ ul li,#a9:checked ~ ul li,#a10:checked ~ ul li,
+#a11:checked ~ ul li,#a12:checked ~ ul li,#a13:checked ~ ul li,#a14:checked ~ ul li,#a15:checked ~ ul li,
+#a16:checked ~ ul li,#a17:checked ~ ul li,#a18:checked ~ ul li,#a19:checked ~ ul li,#a20:checked ~ ul li,
+#a21:checked ~ ul li,#a22:checked ~ ul li,#a23:checked ~ ul li,#a24:checked ~ ul li,#a25:checked ~ ul li,
+#a26:checked ~ ul li,#a27:checked ~ ul li,#a28:checked ~ ul li,#a29:checked ~ ul li,#a30:checked ~ ul li,
+#a31:checked ~ ul li,#a32:checked ~ ul li,#a33:checked ~ ul li,#a34:checked ~ ul li,#a35:checked ~ ul li,
+#a36:checked ~ ul li,#a37:checked ~ ul li,#a38:checked ~ ul li,#a39:checked ~ ul li,#a40:checked ~ ul li,
+#a41:checked ~ ul li,#a42:checked ~ ul li,#a43:checked ~ ul li,#a44:checked ~ ul li,#a45:checked ~ ul li,
+#a46:checked ~ ul li,#a47:checked ~ ul li,#a48:checked ~ ul li,#a49:checked ~ ul li,#a50:checked ~ ul li,
+#a51:checked ~ ul li{
   display: block;
 }
 .sub-ctg{
   width: 180px;
   border-radius: 4px; 
+  display: none;
 }
 .sub-ctg a{
   padding: 8px 14px;
