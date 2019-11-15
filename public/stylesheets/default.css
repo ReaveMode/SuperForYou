@@ -1,11 +1,4 @@
 body {
-  display: grid;
-  grid-template:
-  'header header header'
-  'nav nav nav'
-  'main main aside'
-  'footer footer footer';
-  grid-template-columns: auto auto 200px;
   margin: 0;
   padding: 0;
   
@@ -24,7 +17,8 @@ header {
 } 
 nav {
   height: 60px;
-  background-color: rgba(0, 0, 0, 0.692)
+  background-color: rgba(0, 0, 0, 0.692);
+  margin-right: auto;
   
 }
 
@@ -88,30 +82,17 @@ nav ul{
   padding: 8px 14px;
   text-decoration: none;
 }
-main {
-  display: flex;
-  align-items: left;
-  justify-content: left;
-  background-color: rgba(211,211,211, 0.5);
-  color: black;
-  text-align: left;
-  grid-area: main;
-  margin: 0;
-  padding: 0;
-  background: url('../images/beauty.png') 200px -3800px;
-  background: url('../images/.png') 200px -3800px;
-}
+
 aside{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   background-color: black;
   color: black;
   text-align: left;
-  grid-area: aside;
-  height: 500px;
-  margin:   0px;
+  height: 300px;
   padding: 0px;
+  width: 270px;
+  margin-top: -87px;
+  margin-left: auto;
 
 }
 
@@ -126,18 +107,7 @@ aside ul button{
   margin: 15px;
 }
 
-footer{
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  background-color: black;
-  color: white;
-  text-align: left;
-  grid-area: footer;
-  height: 55px;
-  margin: 0;
-  padding: 0;
-}
+
 header img{
   background-image: url("/images/supermarket.jpg");
   background-color: #cccccc; 
@@ -197,4 +167,21 @@ header img{
 }
 .sub-ctg a:hover{
   background-color: red;
+}
+
+#contacts{
+}
+#button1{
+  width: 70px;
+  height: 20px;
+}
+#button2{
+  width: 70px;
+  height: 20px;
+}
+#button1, #button2{
+  display:inline-block;
+}
+aside ul li{
+  padding: 20px 0px;
 }
