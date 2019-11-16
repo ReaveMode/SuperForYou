@@ -170,6 +170,15 @@ header img{
 }
 
 #contacts{
+  position: absolute;
+  left: 1000px;
+}
+#contacts{
+  display: block;
+  left: 1000px;
+  float: left;
+  list-style: none;
+  position: relative;
 }
 #button1{
   width: 70px;
