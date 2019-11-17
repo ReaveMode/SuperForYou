@@ -1,6 +1,7 @@
 <head>
 
-    <link rel='stylesheet' href='/stylesheets/CtgGeneric.css' />
+    <link rel='stylesheet' href='/stylesheets/ProductGeneric.css' />
+    <script src="javascripts/cart.js"></script>
 
 </head>
 
@@ -505,25 +506,19 @@
 
     </nav>
     <main>
-        <div class="row">
-            <div class="column">
-                <div class="card">
-                    <img src="bag.jpg" style="width:100%">
-                    <p><a href="ProductGeneric.html">Bag of Nothing</a></p>
-                </div>    
-            </div>
-            <div class="column">
-                <div class="card">
-                    <img src="bag.jpg" style="width:100%">
-                    <p><a href="ProductGeneric.html">Bag of Milk</a></p>
-                </div>
-            </div>
-        </div>    
-                <aside>
-                    <ul>
-                        <button type="button" id="button1"><a href="">Cart</a></button>
-                        <button type="button" id="button2"><a href="">Profile</a></button>
-                    </ul>
-                </aside>
+        <div class="card">
+            <img class ="productImage" src="bag.jpg" style="width:100%">
+            <h1 class="productName">Bag of Nothing</h1>
+            <p class="price">$3.99</p>
+            <p>Some text about the jeans..</p>
+            <p><button id ="button3" onclick="addCart()">Add to Cart</button></p>
+          </div>
+          
+        <aside>
+            <ul>
+                <button type="button" id="button1"><a href="">Cart</a></button>
+                <button type="button" id="button2"><a href="">Profile</a></button>
+            </ul>
+        </aside>
     </main>
 </body>
