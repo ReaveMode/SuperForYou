@@ -17,7 +17,7 @@ body {
   } 
   nav {
     height: 60px;
-    background-color: rgba(0, 0, 0, 0.692);
+    background-color: rgba(18,32,52, 1);
     margin-right: auto;
     
   }
@@ -168,28 +168,7 @@ body {
   .sub-ctg a:hover{
     background-color: red;
   }
-  #button1{
-    width: 200px;
-    height: 150px;
-    align-self: center;
-    position: relative;
-    border-radius:50%;
-    top:-15px;
-  }
-  #button2{
-    width: 200px;
-    height: 150px;
-    top:-45px;
-    position: relative;
-    border-radius: 50%;
 
-  }
-  #button1:hover{
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  #button2:hover{
-    background-color: rgba(255, 255, 255, 0.5);
-  }
 
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

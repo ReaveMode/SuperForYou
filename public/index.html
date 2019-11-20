@@ -491,7 +491,9 @@
                             <li class="sub-ctg"><a href="CtgGeneric.html"> Tampons/Pads</a></li>
                         </ul>
                 </ul>
-            <li class="title"><a href="#" id="Contacts">About Us</a>
+            <li class="title"><a href="#" id="Cart">Cart</a></li>
+            <li class="title"><a href="#" id="Profile">Profile</a></li>
+            <li class="title"><a href="#">About Us</a>
                 <ul style="list-style-type: none;">
                     <li class="ctg"><input type="checkbox" id="a52" />
                         <label for="a52">Contacts</label>
@@ -501,19 +503,41 @@
                         <label for="a54">Where To Find Us</label>
                     </li>
                 </ul>
-
-
+        </ul>
     </nav>
     <main>
         <p>Here you will find what you are looking for</p>
         <button>ok </button>
         <aside>
-            <ul>
-                <li><input type="text" placeholder="Enter Username" id="uname" required></li>
-                <li><input type="password" placeholder="Enter Password" id="psword" required></li>
-                <button type="button" id="button1" onclick="login()">Login</button>
-                <button type="button" id="button2"><a href="register.html">Register</a></button>
-            </ul>
+            <!-- Button to open the modal login form -->
+            <button type ="button" onclick="document.getElementById('id01').style.display='block'" id="button1">Login</button>
+            <button type="button" id="button2"><a href="register.html">Register</a></button>
+            <!-- The Modal -->
+            <div id="id01" class="modal">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+
+                <!-- Modal Content -->
+                <form class="modal-content animate" action="/action_page.php">
+                    <div class="imgcontainer">
+                        <img src="../images/beauty.png" class="loginPic">
+                    </div>
+
+                    <div class="container">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" id="uname" required>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" id="psword" required>
+
+                        <button type="button" onclick="login()">Login</button>
+                    </div>
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                            class="cancelbtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </aside>
 
     </main>
