@@ -10,7 +10,7 @@
     </header>
     <nav>
         <ul style="list-style-type: none;">
-
+            <li class="title"><a href="index.html">Home</a>
             <li class="title"><a href="#">Healthy</a>
                 <ul style="list-style-type: none;">
                     <li class="ctg"><input type="checkbox" id="a1" />
@@ -505,15 +505,34 @@
         </ul>
     </nav>
     <main>
-        <ul style="list-style-type: none;" id="lalala">
-            <li>Enter Name: <input type="text" placeholder="Enter Name" name="uname" required></li>
-            <li>Enter Password: <input type="text" placeholder="Enter Password" name="psw" required></li>
-            <li>Enter Email: <input type="text" placeholder="Enter Email" name="email" required></li>
-            <li>Enter Address: <input type="text" placeholder="Enter Address" name="address" required></li>
-            <li>Enter Phone Number: <input type="text" placeholder="Enter Phone Number" name="pNumber" required></li>
-            <li>Enter NIF: <input type="text" placeholder="Enter NIF" name="nif" required></li>
-            <button type="button" id="button1"><a href="index.html">Register</a></button>
-            <button type="button" id="button2"><a href="index.html">Back</a></button>
-        </ul>
+        <form action="action_page.php">
+            <div class="container">
+              <h1>Register</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+          
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psword" required>
+              
+              <label for="name"><b>Full Name</b></label>
+              <input type="text" placeholder="Enter Full Name" name="name" required>
+
+              <label for="nif"><b>NIF</b></label>
+              <input type="text" placeholder="Enter NIF" name="nif" required>
+
+              <label for="phoneNumber"><b>Phone Number</b></label>
+              <input type="text" placeholder="Enter Phone Number" name="phoneNumber" required>
+
+              <hr>
+              <button type="submit" class="registerbtn">Register</button>
+            </div>
+          
+            <div class="container signin">
+              <p>Already have an account? <a href="index.html">Sign in</a>.</p>
+            </div>
+          </form>
     </main>
 </body>
