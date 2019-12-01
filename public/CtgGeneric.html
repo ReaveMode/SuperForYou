@@ -12,38 +12,6 @@
     <nav>
         <ul style="list-style-type: none;">
             <li class="title"><a href="MainGeneric.html">Home</a>
-            <li class="title"><a href="#">Healthy</a>
-                <ul style="list-style-type: none;">
-                    <li class="ctg"><input type="checkbox" id="a1" />
-                        <label for="a1">Vegan/Vegetariano</label>
-                        <ul>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Food</a></li>
-                        </ul>
-                    <li class="ctg"><input type="checkbox" id="a2" />
-                        <label for="a2">Gluten/Lactose Free</label>
-                        <ul>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Cereal/Cereal Bars</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Biscuits</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Snacks/Tortitas</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Pastas/Flour</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Ready Done Meals</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Bread/Pasteries/Tosties</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Baby Food</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Dairy Alternatives</a></li>
-                        </ul>
-                    <li class="ctg"><input type="checkbox" id="a3" />
-                        <label for="a3">Food Suplements</label>
-                        <ul>
-                            <li class="sub-ctg"><a href="CtgGeneric.html">Sport Suplements</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Health Bars</a></li>
-                        </ul>
-                    <li class="ctg"><input type="checkbox" id="a4" />
-                        <label for="a4">Biological Food</label>
-                        <ul>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Fruit</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Vegetables</a></li>
-                        </ul>
-                </ul>
             <li class="title"><a href="#">Food</a>
                 <ul style="list-style-type: none;">
                     <li class="ctg"><input type="checkbox" id="a5" />
@@ -331,8 +299,8 @@
                     <li class="ctg"><input type="checkbox" id="a34" />
                         <label for="a34">Hard Liquor</label>
                         <ul>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Vodka</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Rum</a></li>
+                            <li class="sub-ctg" data-value="Vodka" id="teste"><a href="CtgGeneric.html" > Vodka</a></li>
+                            <li class="sub-ctg" data-value="Rum" id ="teste2"><a href="CtgGeneric.html"> Rum</a></li>
                             <li class="sub-ctg"><a href="CtgGeneric.html"> Tequila</a></li>
                             <li class="sub-ctg"><a href="CtgGeneric.html"> Sugarcane Liquor</a></li>
                             <li class="sub-ctg"><a href="CtgGeneric.html"> Brandy</a></li>
@@ -340,7 +308,7 @@
                             <li class="sub-ctg"><a href="CtgGeneric.html"> Appetizers</a></li>
                             <li class="sub-ctg"><a href="CtgGeneric.html"> Other Spirit Drinks</a></li>
                             <li class="sub-ctg"><a href="CtgGeneric.html"> Whisky</a></li>
-                            <li class="sub-ctg"><a href="CtgGeneric.html"> Gin</a></li>
+                            <li class="sub-ctg"><a href="CtgGeneric.html"> Gin</a></li> 
                         </ul>
                 </ul>
             <li class="title"><a href="#">Dairy</a>
@@ -509,9 +477,8 @@
     <main>
         <div class="row">
             <div class="column">
-                <div class="card">
-                    <img src="bag.jpg" style="width:100%">
-                    <p><a href="ProductGeneric.html">Bag of Nothing</a></p>
+                <div class="card" id='card'>
+                    
                 </div>
             </div>
         </div>
