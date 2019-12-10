@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-<body>  
+<body>
     <header>
         <img src="/images/supermarket.jpg" alt="">
     </header>
@@ -31,7 +31,8 @@
                     <li class="ctg"><input type="checkbox" id="a8" />
                         <label for="a8">Condiments</label>
                         <ul>
-                            <li class="sub-ctg" data-value="Salt/Pepper" id="teste5"><a href="CtgGeneric.html"> Salt/Pepper</a>
+                            <li class="sub-ctg" data-value="Salt/Pepper" id="teste5"><a href="CtgGeneric.html">
+                                    Salt/Pepper</a>
                             </li>
                             <li class="sub-ctg" data-value="Spices" id="teste6"><a href="CtgGeneric.html"> Spices</a>
                             </li>
@@ -84,7 +85,8 @@
                         <ul>
                             <li class="sub-ctg" data-value="Apples/Pears" id="teste18"><a href="CtgGeneric.html">
                                     Apples/Pears</a></li>
-                            <li class="sub-ctg" data-value="Citrus Fruit/Bananas" id="teste19"><a href="CtgGeneric.html"> Citrus
+                            <li class="sub-ctg" data-value="Citrus Fruit/Bananas" id="teste19"><a
+                                    href="CtgGeneric.html"> Citrus
                                     Fruit/Bananas</a></li>
                         </ul>
                     <li class="ctg"><input type="checkbox" id="a23" />
@@ -219,7 +221,7 @@
                                     Aid</a></li>
                         </ul>
                 </ul>
-            <li class="title"><a href="#" id="Cart">Cart</a></li>
+            <li class="title"><a id="Cart">Cart</a></li>
             <li class="title"><a href="profile.html" id="Profile">Profile</a></li>
             <li class="title"><a href="#">About Us</a>
                 <ul style="list-style-type: none;">
@@ -233,11 +235,29 @@
                 </ul>
         </ul>
     </nav>
-    <main >
+    <main>
+        <section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+                <div class="cart-item cart-column">
+                    
+                </div>  
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
         <div class="row">
-            <div class="column" id ='card'>
-                
+            <div class="column" id='card'>
+
             </div>
         </div>
     </main>
-</body> 
+</body>
