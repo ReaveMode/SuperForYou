@@ -236,7 +236,32 @@
         </ul>
     </nav>
     <main>
-        <section class="container content-section">
+        <script>
+            $(document).ready(function () {
+                $("#cart").hide();
+                $("#card").show();
+
+                $("#Cart").click(function () {
+                    $("#cart").show();
+                    $("#card").hide();
+                    $("#produto").hide();
+                });
+                $(".sub-ctg").click(function () {
+                    $("#card").show();
+                    $("#cart").hide();
+                });
+                $("#card").click(function () {
+                    $("#card").hide();
+                    $("#cart").hide();
+                    $("#produto").show();
+
+                });
+            });
+
+
+        </script>
+
+        <section id="cart" class="container content-section">
             <h2 class="section-header">CART</h2>
             <div class="cart-row">
                 <span class="cart-item cart-header cart-column">ITEM</span>
@@ -244,16 +269,22 @@
                 <span class="cart-quantity cart-header cart-column">QUANTITY</span>
             </div>
             <div class="cart-items">
-                <div class="cart-item cart-column">
-                    
-                </div>  
+        
+
+                
             </div>
+
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
                 <span class="cart-total-price">$0</span>
             </div>
             <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
         </section>
+
+        <div id  ="produto">
+
+        </div>
+
         <div class="row">
             <div class="column" id='card'>
 

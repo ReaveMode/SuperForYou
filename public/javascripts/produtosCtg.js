@@ -14,20 +14,20 @@ window.onload = function () {
                 produto = result;
                 str = ''
                 card = document.getElementById("card")
-
+                
                 for (i in produto) {
                     if (produto[i].categoria == teste) {
                         $('#abc').remove();
                         $("p").remove();
                         console.log(produto[i].categoria + '==' + teste)
-                        str += '<div class="card"><img src ="' + produto[i].imagem + '" id ="abc" style="width:100%">' + '<p onclick = "loadProduto(\'' + produto[i].nome + '\')"><a href = "ProductGeneric.html">' + produto[i].nome + '</a></p></div>'
+                        str += '<div class="card"><img src ="' + produto[i].imagem + '" id ="abc" style="width:100%">' + '<p onclick = "loadProduto(\'' + produto[i].nome + '\')"><a>' + produto[i].nome + '</a></p></div>'
                         var getInput = produto[i].nome;
                         localStorage.setItem("storageName", getInput);
                     }    
                 }
 
                 card.innerHTML = str + card.innerHTML
-
+                
             });
 
         },
@@ -38,4 +38,132 @@ window.onload = function () {
 }
 
 
+function loadProduto(item) {
+    $.ajax({
+        url: '/api/produto',
+        method: 'get',
+        success: function (result, status) {
+            var str = ''
+            var saved = localStorage.getItem("storageName");
+            alert(saved)
+            produto = result;
+            main = document.getElementById("produto")
+            var getClicked = saved;
+            localStorage.setItem("storedClick", getClicked);
+            for (i in produto) {
+                if (produto[i].nome == saved) {
+                    str = '<div class = "card1"><img id ="productImage" src=' + produto[i].imagem + 'style ="width:"100" height:"100"">' +
+                        '<h1 id = "nome" data-value = "'+produto[i].nome+'" class ="shop-item-title">' + produto[i].nome + '</h1><p class="shop-item-price" data-value = "'+produto[i].AvgPrice+'" id ="price">Avg Price: ' + produto[i].AvgPrice + '€</p>' +
+                        '<p>' + produto[i].descricao + '</p><p><button type="button" class="btn btn-primary shop-item-button" id="button3">Add to Cart</button></p></div>'
 
+                }
+            }
+            main.innerHTML = str
+            ready();
+            
+        }
+
+
+    });
+}
+
+function ready() {
+    console.log("yo mama")
+    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged)
+    }
+
+    var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+}
+
+function purchaseClicked() {
+    alert('Thank you for your purchase')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
+}
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function addToCartClicked(event) {
+    var button = event.target
+    var shopItem = button.parentElement
+    
+    var title = document.getElementById("nome").getAttribute("data-value");
+    var price = document.getElementById("price").getAttribute("data-value");
+
+
+    addItemToCart(title, price)
+    updateCartTotal()
+}
+
+function addItemToCart(title, price) {
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
+    var cartRowContents = `
+        <div class="cart-item cart-column">
+            
+            <span class="cart-item-title">${title}</span>
+        </div>
+        <span class="cart-price cart-column">${price}</span>
+        <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+        </div>`
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+}
+
+function updateCartTotal() {
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.innerText.replace('$', ''))
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
+    }
+    total = Math.round(total * 100) / 100
+    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+}
