@@ -20,6 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/produto', produtoRouter);
+app.use('/api/produto/cart', produtoRouter);
+app.use('/api/produto/store', produtoRouter);
+app.use('/api/produto/compra', produtoRouter);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

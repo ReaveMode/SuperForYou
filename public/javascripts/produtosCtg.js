@@ -1,6 +1,6 @@
 var produto;
 var teste;
-var total = 0; 
+var total;
 var title;
 window.onload = function () {
     $.ajax({
@@ -15,19 +15,19 @@ window.onload = function () {
                 produto = result;
                 str = ''
                 card = document.getElementById("card")
-                
+
                 for (i in produto) {
                     if (produto[i].categoria == teste) {
                         $('#abc').remove();
-                        $("p").remove();
+                        $('#yeetus').remove();
                         console.log(produto[i].categoria + '==' + teste)
-                        str += '<div class="card"><img src ="' + produto[i].imagem + '" id ="abc" style="width:100%">' + '<p onclick = "loadProduto(\'' + produto[i].nome + '\')"><a>' + produto[i].nome + '</a></p></div>'
-                       
-                    }    
+                        str += '<div class="card"><img src ="' + produto[i].imagem + '" id ="abc" style="width:100%">' + '<p id = "yeetus" onclick = "loadProduto(\'' + produto[i].nome + '\')"><a>' + produto[i].nome + '</a></p></div>'
+
+                    }
                 }
 
                 card.innerHTML = str + card.innerHTML
-                
+
             });
 
         },
@@ -49,14 +49,14 @@ function loadProduto(item) {
             for (i in produto) {
                 if (produto[i].nome == item) {
                     str = '<div class = "card1"><img id ="productImage" src=' + produto[i].imagem + 'style ="width:"100" height:"100"">' +
-                        '<h1 id = "nome" data-value = "'+produto[i].nome+'" class ="shop-item-title">' + produto[i].nome + '</h1><p class="shop-item-price" data-value = "'+produto[i].AvgPrice+'" id ="price">Avg Price: ' + produto[i].AvgPrice + '€</p>' +
+                        '<h1 id = "nome" data-value = "' + produto[i].nome + '" class ="shop-item-title">' + produto[i].nome + '</h1><p class="shop-item-price" data-value = "' + produto[i].AvgPrice + '" id ="price">Avg Price: ' + produto[i].AvgPrice + '€</p>' +
                         '<p>' + produto[i].descricao + '</p><p><button type="button" class="btn btn-primary shop-item-button" id="button3">Add to Cart</button></p></div>'
 
                 }
             }
             main.innerHTML = str
             ready();
-            
+
         }
 
 
@@ -87,22 +87,44 @@ function ready() {
 }
 
 function purchaseClicked() {
-    orderPrice=total;
-    console.log(orderPrice);
-        $.ajax({
-            url:"/api",
-            method: "post",
-            data: { 
-              orderPrice,
-              title
-            },
-            success: function (res,status) {
-                console.log('Success')
-            },
-            error: function() {
-                console.log("Error on post")
-            }
-        });
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    var produtos = '';
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        produtos = title
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.innerText.replace('$', ''))
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
+    }
+    total = Math.round(total * 100) / 100
+    console.log(total);
+    console.log(produtos)
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    $.ajax({
+        url: "/api/produto/compra",
+        method: "post",
+        data: {
+            produto: produtos,
+            preco: total,
+            date: String(today),
+
+        },
+        success: function (res, status) {
+            console.log('Success')
+            
+        },
+        error: function () {
+            console.log("Error on post")
+        }
+    });
 }
 
 function removeCartItem(event) {
@@ -122,7 +144,7 @@ function quantityChanged(event) {
 function addToCartClicked(event) {
     var button = event.target
     var shopItem = button.parentElement
-    
+
     title = document.getElementById("nome").getAttribute("data-value");
     var price = document.getElementById("price").getAttribute("data-value");
 

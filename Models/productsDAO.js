@@ -12,13 +12,13 @@ module.exports.getAll = function (callback, next) {
     })
 }
 
-module.exports.createCart = function (orderPrice, title, callback, next) {
+module.exports.createCart = function (obj, callback, next) {
     produtos.getConnection(function (err, conn){
         if (err) {
             conn.release();
             next(err);
         }
-        else conn.query("insert into Cart(idCart, Produto, precoTotal, User_idUser, date) values (01,"+title+","+orderPrice+", 0, CURDATE()))", function(err){
+        else conn.query("insert into Cart(idCart, Produto, precoTotal, User_idUser, date) values (1,?,?,1,?)",[obj.produto, obj.preco, obj.date], function(err){
             conn.release();
             callback({msg:"teste"});
         })
@@ -27,4 +27,30 @@ module.exports.createCart = function (orderPrice, title, callback, next) {
 
 }
 
+module.exports.getStore = function (callback, next) {
+    produtos.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("select nomeSM, Latitude, Longitude from Supermercado", function (err, rows) {
+            conn.release();
+            callback(rows);
+        })
+    })
+}
 
+
+
+module.exports.getCart = function (callback, next) {
+    produtos.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("select Produto, precoTotal from Cart", function (err, rows) {
+            conn.release();
+            callback(rows);
+        })
+    })
+}
