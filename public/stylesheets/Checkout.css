@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    color: darkgreen;
+    text-align: left;
+    grid-area: header;
+    text-align-last: left;
+    font: 70px "Lucida Grande", Helvetica, Arial, sans-serif; 
+    background: url('../images/supermarket.jpg');
+  } 
+  nav {
+    height: 60px;
+    background-color: rgba(18,32,52, 1);
+    margin-right: auto;
+    
+  }
+  
+  nav ul{
+    font-family: arial;
+    color: #222;
+    font-size: 16px;
+    line-height: center;
+    float: left;
+    padding: 0px 20px;
+    
+  }
+  
+  nav ul{
+    float: left;
+  }
+  nav ul li{
+    float: left;
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+  }
+  nav ul li{
+    display: block;
+    font-family: arial;
+    color: lightseagreen;
+    font-size:  20px;
+    padding: 7px 14px;
+    text-decoration: none;
+  }
+  .title ul{
+    display: none;
+    position: absolute;
+    background-color: beige ;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .title:hover ul{
+    display: block;
+  }
+  .title:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .ctg{
+    width: 180px;
+    border-radius: 4px; 
+  }
+  .ctg{
+    padding:2px 3px;
+  }
+  .ctg a{
+    padding: 10px 14px;
+  }
+  .ctg label:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .ctg label{
+    display: block;
+    font-family: arial;
+    color: lightseagreen;
+    font-size:  17px;
+    padding: 8px 14px;
+    text-decoration: none;
+  }
+  
+  aside{
+    display: block;
+    background-color: rgb(167, 167, 141);
+    color: black;
+    text-align: left;
+    height: 300px;
+    padding: 0px;
+    width: 270px;
+    margin-top: -87px;
+    margin-left: auto;
+  
+  }
+  
+  aside ul input{ 
+  width: fit-content;
+  padding: 10px;
+  margin: 10px;
+  border-width: 0px;
+  }
+  
+  aside ul button{
+    margin: 15px;
+  }
+  
+  
+  header img{
+    background-image: url("/images/supermarket.jpg");
+    background-color: #cccccc; 
+    height: 300px; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: fit-content;
+  }
+  
+  .ctg ul li, .ctg input[type="checkbox"]{
+    display: none;
+  }
+  
+  
+  
+  .sub-ctg{
+    float: left;
+    list-style: none;
+    position: relative;
+  }
+  .sub-ctg a{
+    display: block;
+    font-family: arial;
+    color: lightseagreen;
+    font-size: 16px;
+    padding: 7px 14px;
+    text-decoration: none;
+  }
+  .ctg ul{
+    display: none;
+    position: absolute;
+    background-color: gray  ;
+    padding: 0px;
+    border-radius: 10px;
+  }
+  #a1:checked ~ ul li,#a2:checked ~ ul li,#a3:checked ~ ul li,#a4:checked ~ ul li,#a5:checked ~ ul li,
+  #a6:checked ~ ul li,#a7:checked ~ ul li,#a8:checked ~ ul li,#a9:checked ~ ul li,#a10:checked ~ ul li,
+  #a11:checked ~ ul li,#a12:checked ~ ul li,#a13:checked ~ ul li,#a14:checked ~ ul li,#a15:checked ~ ul li,
+  #a16:checked ~ ul li,#a17:checked ~ ul li,#a18:checked ~ ul li,#a19:checked ~ ul li,#a20:checked ~ ul li,
+  #a21:checked ~ ul li,#a22:checked ~ ul li,#a23:checked ~ ul li,#a24:checked ~ ul li,#a25:checked ~ ul li,
+  #a26:checked ~ ul li,#a27:checked ~ ul li,#a28:checked ~ ul li,#a29:checked ~ ul li,#a30:checked ~ ul li,
+  #a31:checked ~ ul li,#a32:checked ~ ul li,#a33:checked ~ ul li,#a34:checked ~ ul li,#a35:checked ~ ul li,
+  #a36:checked ~ ul li,#a37:checked ~ ul li,#a38:checked ~ ul li,#a39:checked ~ ul li,#a40:checked ~ ul li,
+  #a41:checked ~ ul li,#a42:checked ~ ul li,#a43:checked ~ ul li,#a44:checked ~ ul li,#a45:checked ~ ul li,
+  #a46:checked ~ ul li,#a47:checked ~ ul li,#a48:checked ~ ul li,#a49:checked ~ ul li,#a50:checked ~ ul li,
+  #a51:checked ~ ul li{
+    display: block;
+  }
+  .sub-ctg{
+    width: 180px;
+    border-radius: 4px; 
+    display: none;
+  }
+  .sub-ctg a{
+    padding: 8px 14px;
+  }
+  .sub-ctg a:hover{
+    background-color: red;
+  }
+
+  #map { height: 700px;  width: 1500px}
