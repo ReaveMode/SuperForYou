@@ -1,6 +1,7 @@
 var produto;
 var teste;
-
+var total = 0; 
+var title;
 window.onload = function () {
     $.ajax({
         url: '/api/produto',
@@ -21,8 +22,7 @@ window.onload = function () {
                         $("p").remove();
                         console.log(produto[i].categoria + '==' + teste)
                         str += '<div class="card"><img src ="' + produto[i].imagem + '" id ="abc" style="width:100%">' + '<p onclick = "loadProduto(\'' + produto[i].nome + '\')"><a>' + produto[i].nome + '</a></p></div>'
-                        var getInput = produto[i].nome;
-                        localStorage.setItem("storageName", getInput);
+                       
                     }    
                 }
 
@@ -43,15 +43,11 @@ function loadProduto(item) {
         url: '/api/produto',
         method: 'get',
         success: function (result, status) {
-            var str = ''
-            var saved = localStorage.getItem("storageName");
-            alert(saved)
+            var str = '';
             produto = result;
             main = document.getElementById("produto")
-            var getClicked = saved;
-            localStorage.setItem("storedClick", getClicked);
             for (i in produto) {
-                if (produto[i].nome == saved) {
+                if (produto[i].nome == item) {
                     str = '<div class = "card1"><img id ="productImage" src=' + produto[i].imagem + 'style ="width:"100" height:"100"">' +
                         '<h1 id = "nome" data-value = "'+produto[i].nome+'" class ="shop-item-title">' + produto[i].nome + '</h1><p class="shop-item-price" data-value = "'+produto[i].AvgPrice+'" id ="price">Avg Price: ' + produto[i].AvgPrice + '€</p>' +
                         '<p>' + produto[i].descricao + '</p><p><button type="button" class="btn btn-primary shop-item-button" id="button3">Add to Cart</button></p></div>'
@@ -91,12 +87,22 @@ function ready() {
 }
 
 function purchaseClicked() {
-    alert('Thank you for your purchase')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
-    }
-    updateCartTotal()
+    orderPrice=total;
+    console.log(orderPrice);
+        $.ajax({
+            url:"/api",
+            method: "post",
+            data: { 
+              orderPrice,
+              title
+            },
+            success: function (res,status) {
+                console.log('Success')
+            },
+            error: function() {
+                console.log("Error on post")
+            }
+        });
 }
 
 function removeCartItem(event) {
@@ -117,7 +123,7 @@ function addToCartClicked(event) {
     var button = event.target
     var shopItem = button.parentElement
     
-    var title = document.getElementById("nome").getAttribute("data-value");
+    title = document.getElementById("nome").getAttribute("data-value");
     var price = document.getElementById("price").getAttribute("data-value");
 
 
@@ -167,3 +173,4 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
+
