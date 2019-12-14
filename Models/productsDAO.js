@@ -12,4 +12,19 @@ module.exports.getAll = function (callback, next) {
     })
 }
 
+module.exports.createCart = function (orderPrice, title, callback, next) {
+    produtos.getConnection(function (err, conn){
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("insert into Cart(idCart, Produto, precoTotal, User_idUser, date) values (01,"+title+","+orderPrice+", 0, CURDATE()))", function(err){
+            conn.release();
+            callback({msg:"teste"});
+        })
+    })
+
+
+}
+
 
