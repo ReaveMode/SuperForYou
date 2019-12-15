@@ -64,7 +64,7 @@ function loadProduto(item) {
 }
 
 function ready() {
-    console.log("yo mama")
+    console.log("test")
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]

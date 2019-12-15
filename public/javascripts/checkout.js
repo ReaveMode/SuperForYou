@@ -3,14 +3,31 @@ window.onload = function () {
         url: '/api/produto/store',
         method: 'get',
         success: function (result, status) {
-            var id = this.id;
             store = result;
             str = ''
             card = document.getElementById("stores")
-            console.log(result)
             for (i in store) {
-                console.log(store)
-                str += '<li id= "' + store[i].nomeSM + '" onclick="swap('+store[i].Latitude+','+store[i].Longitude+')">' + store[i].nomeSM + '</li>'
+                str += '<li id= "nomeLJ"' + store[i].nomeSM + '" onclick="swap('+store[i].Latitude+','+store[i].Longitude+')">' + store[i].nomeSM + '</li>'
+                
+            }
+
+            card.innerHTML = str + card.innerHTML
+
+        },
+
+        error: function () {
+            console.log('Error');
+        }
+    })
+    $.ajax({
+        url: '/api/produto/cart',
+        method: 'get',
+        success: function (result, status) {
+            cart = result;
+            str = ''
+            card = document.getElementById("nomeLJ")
+            for (i in cart) {
+                str += '<li>' + cart[i].precoTotal + '</li>'
                 
             }
 
@@ -25,14 +42,17 @@ window.onload = function () {
 }
 
 
+
 function swap(Lat, Long) {
 
     console.log(Lat + "," +Long)    
-
+    
 
 
 
 }
+
+
 
 
 if (navigator.geolocation) {

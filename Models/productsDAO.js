@@ -18,7 +18,7 @@ module.exports.createCart = function (obj, callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query("insert into Cart(idCart, Produto, precoTotal, User_idUser, date) values (1,?,?,1,?)",[obj.produto, obj.preco, obj.date], function(err){
+        else conn.query("insert into Cart(idCart, Produto, precoTotal, User_idUser, date) values (01,?,?,02,?)",[obj.produto, obj.preco, obj.date], function(err){
             conn.release();
             callback({msg:"teste"});
         })

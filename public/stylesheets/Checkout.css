@@ -16,7 +16,7 @@ body {
     background: url('../images/supermarket.jpg');
   } 
   nav {
-    height: 60px;
+    height: 120px;
     background-color: rgba(18,32,52, 1);
     margin-right: auto;
     
@@ -46,8 +46,9 @@ body {
     font-family: arial;
     color: lightseagreen;
     font-size:  20px;
-    padding: 7px 14px;
+    padding: 7px 150px;
     text-decoration: none;
+    display: table-cell;
   }
   .title ul{
     display: none;
