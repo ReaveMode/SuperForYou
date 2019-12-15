@@ -34,3 +34,10 @@ router.post('/compra', function(req, res, next) {
     res.send(result);
   });
 });
+
+
+router.get('/id', function(req, res, next) {
+  produto.getMaxId(function(result){
+    res.send(result);
+  });
+});

@@ -23,11 +23,34 @@ window.onload = function () {
         url: '/api/produto/cart',
         method: 'get',
         success: function (result, status) {
+            var id = localStorage.getItem("id") 
             cart = result;
             str = ''
-            card = document.getElementById("nomeLJ")
+            console.log(result)
+            
+            card = document.getElementById("prices")
             for (i in cart) {
-                str += '<li>' + cart[i].precoTotal + '</li>'
+                if (id == cart[i].idCart)
+                var dif = 0.5
+                var dif2 = 2
+                var dif3 = 4
+                if (cart[i].precoTotal < 10){
+                var PingoDoce = cart[i].precoTotal - dif
+                PingoDoce = Math.round(PingoDoce*100) /100
+                var Lidl = cart[i].precoTotal + dif
+                Lidl = Math.round(Lidl * 100) /100
+                }else if (cart[i].precoTotal > 10 && cart[i].precoTotal < 20){
+                var PingoDoce = cart[i].precoTotal - dif2
+                PingoDoce = Math.round(PingoDoce*100) /100
+                var Lidl = cart[i].precoTotal + dif2
+                Lidl = Math.round(Lidl * 100) /100
+                }else if (cart[i].precoTotal > 20 && cart[i].precoTotal < 100){
+                var PingoDoce = cart[i].precoTotal - dif3
+                PingoDoce = Math.round(PingoDoce*100) /100
+                var Lidl = cart[i].precoTotal + dif3
+                Lidl = Math.round(Lidl * 100) /100
+                }
+                str = '<li>' + PingoDoce  + '</li><li>' + cart[i].precoTotal + '</li><li>' + Lidl + '</li>'
                 
             }
 

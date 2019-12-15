@@ -2,6 +2,7 @@ var produto;
 var teste;
 var total;
 var title;
+var yeet;
 window.onload = function () {
     $.ajax({
         url: '/api/produto',
@@ -36,7 +37,9 @@ window.onload = function () {
         }
     })
 }
-
+function getMaxId() {
+  
+}
 
 function loadProduto(item) {
     $.ajax({
@@ -58,9 +61,18 @@ function loadProduto(item) {
             ready();
 
         }
-
-
     });
+    $.ajax({
+        url: '/api/produto/id',
+        method: 'get',
+        success: function (result, status) {    
+        console.log(result[0].ID)
+        yeet = result[0].ID + 1
+        console.log(yeet)
+        localStorage.setItem("id", yeet);
+        }
+    });
+    
 }
 
 function ready() {
@@ -86,6 +98,8 @@ function ready() {
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
+
+
 function purchaseClicked() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
@@ -108,10 +122,13 @@ function purchaseClicked() {
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
     today = yyyy + '-' + mm + '-' + dd;
+    
+    
     $.ajax({
         url: "/api/produto/compra",
         method: "post",
         data: {
+            id: yeet,
             produto: produtos,
             preco: total,
             date: String(today),
@@ -119,7 +136,7 @@ function purchaseClicked() {
         },
         success: function (res, status) {
             console.log('Success')
-            
+
         },
         error: function () {
             console.log("Error on post")

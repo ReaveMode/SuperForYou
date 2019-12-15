@@ -23,7 +23,7 @@ app.use('/api/produto', produtoRouter);
 app.use('/api/produto/cart', produtoRouter);
 app.use('/api/produto/store', produtoRouter);
 app.use('/api/produto/compra', produtoRouter);
-
+app.use('/api/produto/id', produtoRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

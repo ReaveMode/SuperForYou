@@ -18,7 +18,7 @@ module.exports.createCart = function (obj, callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query("insert into Cart(idCart, Produto, precoTotal, User_idUser, date) values (01,?,?,02,?)",[obj.produto, obj.preco, obj.date], function(err){
+        else conn.query("insert into Cart(idCart, Produto, precoTotal, User_idUser, date) values (?,?,?,02,?)",[obj.id, obj.produto, obj.preco, obj.date], function(err){
             conn.release();
             callback({msg:"teste"});
         })
@@ -48,7 +48,20 @@ module.exports.getCart = function (callback, next) {
             conn.release();
             next(err);
         }
-        else conn.query("select Produto, precoTotal from Cart", function (err, rows) {
+        else conn.query("select idCart, Produto, precoTotal from Cart", function (err, rows) {
+            conn.release();
+            callback(rows);
+        })
+    })
+}
+
+module.exports.getMaxId = function (callback, next) { //Alterar
+    produtos.getConnection(function (err, conn) {
+        if (err) {
+            conn.release();
+            next(err);
+        }
+        else conn.query("SELECT MAX(idCart) as ID FROM Cart", function (err, rows) {
             conn.release();
             callback(rows);
         })
